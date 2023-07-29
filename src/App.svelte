@@ -1,5 +1,10 @@
 <script>
-  let characters = ["Ryuk", "Character 2", "Character 3", "Character 4"];
+  let characters = [
+    { name: "Ryuk", flag: false },
+    { name: "Character 2", flag: false },
+    { name: "Character 3", flag: false },
+  ];
+  let selectedCharacter = "";
   let show = false;
   let mouseX = 0;
   let mouseY = 0;
@@ -11,23 +16,40 @@
     console.log("Mouse coordinates:", event.clientX, event.clientY);
   }
 
-  // Add this function in your script section
   function selectCharacter(character) {
-    selectedCharacter = character;
+    selectedCharacter = character.name;
+    console.log(selectedCharacter, "selected");
+    check();
+  }
+
+  function check() {
+    switch (selectedCharacter) {
+      case "Ryuk":
+        if (characters[0].flag == true) {
+          alert("yay");
+        } else {
+          alert("nah");
+        }
+    }
+  }
+
+  function checkFlag() {
+    characters[0].flag = true;
+    console.log(selectedCharacter, "selected");
   }
 </script>
 
 <main on:click={handleClick}>
-  
   <div
     class="bounding-box"
-    style="top: 3690px; left: 300px; width: 60px; height: 120px;"
+    style="top: 2920px; left: 240px; width: 45px; height:95px;"
+    on:click={checkFlag}
   />
 
-  {#if show == true }
+  {#if show == true}
     <ul style="position: absolute; top: {mouseY}px; left: {mouseX}px;">
       {#each characters as character}
-        <li on:click={() => selectCharacter(character)}>{character}</li>
+        <li on:click={() => selectCharacter(character)}>{character.name}</li>
       {/each}
     </ul>
   {/if}
@@ -45,8 +67,9 @@
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 8080px;
+    height: 6400px;
     background-image: url("/background.jpg");
+    background-size: contain;
   }
 
   .bounding-box {
