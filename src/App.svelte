@@ -1,4 +1,6 @@
 <script>
+  import CharacterBox from './components/CharacterBox.svelte';
+
   import { charactersStore } from "./stores.js";
   let characters;
   let displayCharacters;
@@ -58,36 +60,12 @@
 </script>
 
 <main on:click={handleClick}>
-  <div
-    class="bounding-box"
-    style="top: 2920px; left: 240px; width: 45px; height:95px;"
-    on:click={() => (characters[0].flag = true)}
-  />
-  <div
-    class="bounding-box"
-    style="top: 3810px; left: 590px; width: 70px; height:65px;"
-    on:click={() => (characters[1].flag = true)}
-  />
-  <div
-    class="bounding-box"
-    style="top: 4020px; left: 970px; width: 130px; height:180px;"
-    on:click={() => (characters[1].flag = true)}
-  />
-  <div
-    class="bounding-box"
-    style="top: 4830px; left: 880px; width: 50px; height:40px;"
-    on:click={() => (characters[2].flag = true)}
-  />
-  <div
-    class="bounding-box"
-    style="top: 4990px; left: 1460px; width: 10px; height:40px;"
-    on:click={() => (characters[3].flag = true)}
-  />
-  <div
-    class="bounding-box"
-    style="top: 5915px; left: 950px; width: 60px; height:60px;"
-    on:click={() => (characters[4].flag = true)}
-  />
+  <CharacterBox top={2920} left={240} width={45} height={95} onCharacterClick={() => (characters[0].flag = true)} />
+  <CharacterBox top={3810} left={590} width={70} height={65} onCharacterClick={() => (characters[1].flag = true)} />
+  <CharacterBox top={4020} left={970} width={130} height={180} onCharacterClick={() => (characters[1].flag = true)} />
+  <CharacterBox top={4830} left={880} width={50} height={40} onCharacterClick={() => (characters[2].flag = true)} />
+  <CharacterBox top={4990} left={1460} width={10} height={40} onCharacterClick={() => (characters[3].flag = true)} />
+  <CharacterBox top={5915} left={950} width={60} height={60} onCharacterClick={() => (characters[4].flag = true)} />
 
   {#if show == true}
     <ul style="position: absolute; top: {mouseY}px; left: {mouseX}px;">
@@ -113,10 +91,5 @@
     height: 6400px;
     background-image: url("/background.jpg");
     background-size: contain;
-  }
-
-  .bounding-box {
-    position: absolute;
-    border: 2px solid red;
   }
 </style>
