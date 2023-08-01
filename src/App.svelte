@@ -72,8 +72,8 @@
   <nav>
     <ul class="navbar">
       {#each displayCharacters as character}
-        <li>{character.name}</li>
-        <img src={character.path} alt="nah" />
+          <img src={character.path} alt="nah" />
+          <li id="navTitle">{character.name}</li>
       {/each}
     </ul>
   </nav>
@@ -142,14 +142,17 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 10%;
     font-size: 18px;
   }
 
   .navbar>img{
    height: 20px;
+   width: 20px;
+    margin-right: 1%;
   }
-
+  #navTitle{
+    margin-right: 10%;
+  }
 
   img {
     margin: 0;
@@ -170,7 +173,7 @@
   .character-list {
     position: absolute;
     padding: 8px;
-    background-color: black;
+    background-color: #152238;
     border-radius: 4px;
     list-style: none;
   }
@@ -178,5 +181,9 @@
     font-size: 16px;
     padding: 6px 12px;
     cursor: pointer;
+  }
+  .character-item:hover {
+    background-color: #203354;  
+    border-radius: 4px;
   }
 </style>
