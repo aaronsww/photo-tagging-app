@@ -142,16 +142,19 @@
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 18px;
   }
 
   .navbar>img{
-   height: 20px;
-   width: 20px;
-    margin-right: 1%;
+   height: 80px;
+   width:auto;
+  margin-right: 1%;
   }
   #navTitle{
-    margin-right: 10%;
+    margin-right: 7%;
+    font-size: 20px;
+    font-weight: 500;
   }
 
   img {
